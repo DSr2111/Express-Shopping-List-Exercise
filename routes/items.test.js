@@ -5,3 +5,9 @@ const request = require("supertest");
 const app = require("../app");
 
 let items = require("../fakeDb");
+
+let item = { name: "silly", price: 200 };
+
+beforeEach(async () => {
+  items.push(item);
+});
