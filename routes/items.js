@@ -31,8 +31,10 @@ router.get("/:name", (req, res, next) => {
   }
 });
 
-router.patch("", (req, res, next) => {
+router.patch("/:name", (req, res, next) => {
   try {
+    let foundItem = Item.update(req.params.name, req.body);
+    return res.json({ item: foundItem });
   } catch (err) {
     return next(err);
   }
