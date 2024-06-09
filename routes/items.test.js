@@ -16,3 +16,16 @@ beforeEach(async () => {
 afterEach(async () => {
   items = [];
 });
+
+describe("GET /items/:name", async function () {
+  test("Gets a single item", async function () {
+    const response = await request(app).get(`/items/${item.name}`);
+    expect(response.statusCode).toBe(200);
+    expect(response.body.item).toEqual(item);
+  });
+
+  test("Responds with 404 if can't find item", async function () {
+    const response = await request(app).get(`/items/0`);
+    expect(response.statusCode).toBe(404);
+  });
+});
