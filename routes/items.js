@@ -13,7 +13,11 @@ router.get("", (req, res, next) => {
 
 router.post("", (req, res, next) => {
   try {
-  } catch (err) {}
+    let newItem = new Item(req.body.name, req.body.price);
+    return res.json({ item: newItem });
+  } catch (err) {
+    return next(err);
+  }
 });
 
 router.patch();
