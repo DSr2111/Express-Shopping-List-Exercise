@@ -12,13 +12,21 @@ class Item {
   }
 
   static update(name, data) {
-    let foundItem = Item.findAll(name);
+    let foundItem = Item.find(name);
     if (foundItem === undefined) {
       throw { message: "Item not found", status: 404 };
     }
     foundItem.name = data.name;
     foundItem.price = data.price;
 
+    return foundItem;
+  }
+
+  static find(name) {
+    const foundItem = items.find((v) => v.name === name);
+    if (foundItem === undefined) {
+      throw { message: "Item not found", status: 404 };
+    }
     return foundItem;
   }
 }
