@@ -11,7 +11,10 @@ router.get("", (req, res, next) => {
   }
 });
 
-router.post();
+router.post("", (req, res, next) => {
+  try {
+  } catch (err) {}
+});
 
 router.patch();
 
