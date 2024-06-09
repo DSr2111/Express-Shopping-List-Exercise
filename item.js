@@ -29,4 +29,11 @@ class Item {
     }
     return foundItem;
   }
+
+  static remove(name) {
+    let foundIdx = items.findIndex((v) => v.name === name);
+    if (foundIdx === -1) {
+      throw { message: "Item not found", status: 404 };
+    }
+  }
 }
