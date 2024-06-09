@@ -40,4 +40,13 @@ router.patch("/:name", (req, res, next) => {
   }
 });
 
-router.delete();
+router.delete("/:name", (req, res, next) => {
+  try {
+    Item.remove(req.params.name);
+    return res.json({ message: "Deleted" });
+  } catch (err) {
+    return next(err);
+  }
+});
+
+module.exports = router;
