@@ -10,4 +10,11 @@ class Item {
   static findAll() {
     return items;
   }
+
+  static update(name, data) {
+    let foundItem = Item.findAll(name);
+    if (foundItem === undefined) {
+      throw { message: "Item not found", status: 404 };
+    }
+  }
 }
