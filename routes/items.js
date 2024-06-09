@@ -31,6 +31,11 @@ router.get("/:name", (req, res, next) => {
   }
 });
 
-router.patch();
+router.patch("", (req, res, next) => {
+  try {
+  } catch (err) {
+    return next(err);
+  }
+});
 
 router.delete();
