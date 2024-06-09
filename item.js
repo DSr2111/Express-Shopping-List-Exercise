@@ -16,5 +16,9 @@ class Item {
     if (foundItem === undefined) {
       throw { message: "Item not found", status: 404 };
     }
+    foundItem.name = data.name;
+    foundItem.price = data.price;
+
+    return foundItem;
   }
 }
