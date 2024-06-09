@@ -5,9 +5,14 @@ const request = require("supertest");
 const app = require("../app");
 
 let items = require("../fakeDb");
+const { afterEach } = require("node:test");
 
 let item = { name: "silly", price: 200 };
 
 beforeEach(async () => {
   items.push(item);
+});
+
+afterEach(async () => {
+  items = [];
 });
