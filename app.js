@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const ExpressError = require("./expressError");
 const itemsRoutes = require("./routes/items");
 
 app.use(express.json());
